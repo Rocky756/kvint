@@ -1,0 +1,23 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background: red;
+  box-shadow: 5px 5px 25px #000;
+  // transition: 
+  //   /* step 1 */
+  //   background 0.5s 1s;
+}
+.message {
+  padding-left: 30px;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #21b621;
+  border-radius: 17%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}

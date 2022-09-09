@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import ButtonComponent from './Components/ButtonComponent/ButtonComponent';
+import Loader from './Components/Loader/Loader';
+import Widget from './Components/Widget/Widget';
 
-function App() {
+const stateComponents: any  = {
+  'btn': ButtonComponent,
+  'load': Loader,
+  'widget': Widget,
+};
+
+const getState = (stateName: string): React.Component => {
+  return stateComponents[stateName];
+}
+
+
+const renderModal = (state: string, setState: Function) => {
+  console.log(state);
+  const Component: any = getState(state);
+  console.log(Component);
+  return <Component state={state} setState={setState}/>;
+};
+
+const App: React.FC = () => {
+  const [state, setState] = useState('btn');
+  console.log(state);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      {renderModal(state, setState)}
     </div>
   );
 }
